@@ -1,1 +1,29 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #0f0f0f;
+  color: white;
+}
 
+#chat {
+  padding: 20px;
+  height: 80vh;
+  overflow-y: auto;
+}
+
+.msg-user {
+  text-align: right;
+  margin: 10px;
+  color: #4ade80;
+}
+
+.msg-bot {
+  text-align: left;
+  margin: 10px;
+  color: #60a5fa;
+}
+
+#input-area {
+  display: flex;
+  gap: 5px;
+  padding: 10px;
+}
