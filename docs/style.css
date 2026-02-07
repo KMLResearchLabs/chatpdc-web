@@ -1,29 +1,48 @@
 body {
-  font-family: Arial, sans-serif;
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont;
   background: #0f0f0f;
-  color: white;
+  color: #e5e5e5;
 }
 
 #chat {
+  max-width: 800px;
+  margin: auto;
   padding: 20px;
-  height: 80vh;
   overflow-y: auto;
+  height: calc(100vh - 80px);
 }
 
 .msg-user {
-  text-align: right;
-  margin: 10px;
-  color: #4ade80;
+  background: #1e1e1e;
+  padding: 12px;
+  border-radius: 10px;
+  margin: 10px 0;
 }
 
 .msg-bot {
-  text-align: left;
-  margin: 10px;
-  color: #60a5fa;
+  background: #151515;
+  padding: 12px;
+  border-radius: 10px;
+  margin: 10px 0;
+  border-left: 3px solid #10a37f;
 }
 
 #input-area {
-  display: flex;
-  gap: 5px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #0f0f0f;
   padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+#input-area input {
+  width: 70%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: #1e1e1e;
+  color: white;
 }
