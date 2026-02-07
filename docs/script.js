@@ -5,7 +5,7 @@ async function enviar() {
 
   chat.innerHTML += `<div class="msg-user">${pergunta}</div>`;
 
-  const res = await fetch("https://SEU_BACKEND.onrender.com/chat", {
+  const res = await fetch("https://chatpdc-web.onrender.com", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ pergunta, modo })
