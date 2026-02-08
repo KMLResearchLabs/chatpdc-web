@@ -6,6 +6,9 @@ from PDCBot import PDC_Bot
 from prompts import chatpdc_prompts
 from memory import get_session, cleanup_sessions
 
+print("DEBUG: session_id =", req.session_id)
+
+
 app = FastAPI()
 
 app.add_middleware(
