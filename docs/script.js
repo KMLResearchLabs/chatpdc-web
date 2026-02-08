@@ -1,6 +1,21 @@
+let chatIniciado = false;
+
+function enviarSugestao(texto) {
+  document.getElementById("pergunta").value = texto;
+  enviar();
+}
+
+
 const sessionId = crypto.randomUUID();
 
 async function enviar() {
+  if (!chatIniciado) {
+    document.getElementById("welcome").style.display = "none";
+    document.getElementById("chat").style.display = "flex";
+    chatIniciado = true;
+  }
+
+  
   const pergunta = document.getElementById("pergunta").value;
   const modo = document.getElementById("modo").value;
   const chat = document.getElementById("chat");
