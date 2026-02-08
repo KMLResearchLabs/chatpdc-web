@@ -23,5 +23,5 @@ class ChatRequest(BaseModel):
 @app.post("/chat")
 def chat(req: ChatRequest):
     prompt = chatpdc_prompts.get(req.modo, chatpdc_prompts["Normal"])
-    resposta = PDC_Bot(req.pergunta, prompt)
+    resposta = PDC_Bot(req.pergunta, prompt, req.modo)
     return {"resposta": resposta}

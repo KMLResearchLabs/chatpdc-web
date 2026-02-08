@@ -1,5 +1,10 @@
+import re
+import random
+from groq import Groq
+import os
+from dotenv import load_dotenv
+
 def quebrar_em_linhas(texto, palavras_por_linha):
-    import re
     texto = re.sub(r"\s+", " ", texto.strip())
     palavras = texto.split(" ")
 
@@ -10,30 +15,26 @@ def quebrar_em_linhas(texto, palavras_por_linha):
     return "\n".join(linhas)
 
 
-def PDC_Bot(pergunta: str, prompt: str) -> str:
-    import random
-    from groq import Groq
-    import os
-    from dotenv import load_dotenv
-
+def PDC_Bot(pergunta: str, prompt: str, modo: str) -> str:
     load_dotenv()
     api_key = os.getenv("GROQ_API_KEY")
 
-    frases = [
-    "To comendo sofa",
-    "Come sofa",
-    "Coem ofsa",
-    "Safo moec",
-    "Cmoe faos",
-    "Bora?",
-    "Tem que ir pra Russia",
-    "Como minera Bitcoin no celular?"
-]
+    if modo == "KoC":
+        frases = [
+        "To comendo sofa",
+        "Come sofa",
+        "Coem ofsa",
+        "Safo moec",
+        "Cmoe faos",
+        "Bora?",
+        "Tem que ir pra Russia",
+        "Como minera Bitcoin no celular?"
+    ]
 
-    chance = 5  # %
+        chance = 5  # %
 
-    if random.uniform(0, 100) < chance:
-        return f"\n{random.choice(frases)}"
+        if random.uniform(0, 100) < chance:
+            return f"\n{random.choice(frases)}"
 
     else:
         client = Groq(api_key=api_key)
