@@ -52,9 +52,9 @@ def PDC_Bot(pergunta: str, prompt: str, modo: str) -> str:
             conteudo = resposta.choices[0].message.content.strip()
             conteudo = quebrar_em_linhas(conteudo, palavras_por_linha=17)
         else:
-            conteudo = "Manoel Gomes não quis compartilhar seu conhecimento hoje."
+            conteudo = "O vazio respondeu, nada..."
 
         return f"\n{conteudo}"
 
     except Exception as e:
-        return f"\nAlguém fez porpetagem KKKKK: {e}"
+        return f"\nAlguma porpetagem aconteceu, manda print da tela para kmlresearchlabs@gmail.com: {e}"
