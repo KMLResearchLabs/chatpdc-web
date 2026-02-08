@@ -2,12 +2,14 @@ async function enviar() {
   const pergunta = document.getElementById("pergunta").value;
   const modo = document.getElementById("modo").value;
   const chat = document.getElementById("chat");
+  const botao = document.getElementById("btnEnviar");
 
   if (!pergunta.trim()) return;
 
+  botao.disabled = true;
+
   chat.innerHTML += `<div class="msg-user">${pergunta}</div>`;
 
-  
   const typing = document.createElement("div");
   typing.className = "typing";
   typing.innerHTML = "<span></span><span></span><span></span>";
@@ -26,12 +28,12 @@ async function enviar() {
     const data = await res.json();
 
     typing.remove();
-
     chat.innerHTML += `<div class="msg-bot">${data.resposta}</div>`;
   } catch (err) {
     typing.remove();
     chat.innerHTML += `<div class="msg-bot">Erro ao responder 😢</div>`;
   }
 
+  botao.disabled = false;
   chat.scrollTop = chat.scrollHeight;
 }
