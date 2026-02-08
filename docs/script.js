@@ -27,7 +27,7 @@ async function enviar() {
       body: JSON.stringify({
         pergunta: pergunta,
         modo: modo,
-        session_id: sessionId   // 🔥 AQUI
+        session_id: sessionId
       })
     });
 
