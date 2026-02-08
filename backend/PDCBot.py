@@ -19,49 +19,42 @@ def PDC_Bot(pergunta: str, prompt: str, modo: str) -> str:
     load_dotenv()
     api_key = os.getenv("GROQ_API_KEY")
 
+    # Interceptador do KoC
     if modo == "KoC":
         frases = [
-        "To comendo sofa",
-        "Come sofa",
-        "Coem ofsa",
-        "Safo moec",
-        "Cmoe faos",
-        "Bora?",
-        "Tem que ir pra Russia",
-        "Como minera Bitcoin no celular?"
-    ]
+            "To comendo sofa",
+            "Come sofa",
+            "Coem ofsa",
+            "Safo moec",
+            "Cmoe faos",
+            "Bora?",
+            "Tem que ir pra Russia",
+            "Como minera Bitcoin no celular?"
+        ]
 
         chance = 5  # %
 
         if random.uniform(0, 100) < chance:
             return f"\n{random.choice(frases)}"
 
-    else:
-        client = Groq(api_key=api_key)
+    client = Groq(api_key=api_key)
 
-        try:
-            resposta = client.chat.completions.create(
-                model="llama-3.1-8b-instant",
-                messages=[
-                    {
-                        "role": "system",
-                        "content": prompt
-                    },
-                    {
-                        "role": "user",
-                        "content": pergunta
-                    }
-                ]
-            )
+    try:
+        resposta = client.chat.completions.create(
+            model="llama-3.1-8b-instant",
+            messages=[
+                {"role": "system", "content": prompt},
+                {"role": "user", "content": pergunta}
+            ]
+        )
 
-            if resposta.choices and resposta.choices[0].message:
-                conteudo = resposta.choices[0].message.content.strip()
-                conteudo = quebrar_em_linhas(conteudo, palavras_por_linha=17)
-            else:
-                conteudo = "Manoel Gomes não quis compartilhar seu conhecimento hoje."
+        if resposta.choices and resposta.choices[0].message:
+            conteudo = resposta.choices[0].message.content.strip()
+            conteudo = quebrar_em_linhas(conteudo, palavras_por_linha=17)
+        else:
+            conteudo = "Manoel Gomes não quis compartilhar seu conhecimento hoje."
 
-            return f"\n{conteudo}"
+        return f"\n{conteudo}"
 
-        except Exception as e:
-            return f"\nAlguém fez porpetagem KKKKK: {e}"
-
+    except Exception as e:
+        return f"\nAlguém fez porpetagem KKKKK: {e}"
