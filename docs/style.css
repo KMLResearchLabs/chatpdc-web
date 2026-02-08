@@ -53,6 +53,10 @@ body {
   border-radius: 10px;
   margin-left: auto;
   max-width: 70%;
+  white-space: pre-wrap;
+  line-height: 1.5;
+  font-size: 15px;
+  word-wrap: break-word;
 }
 
 .msg-bot {
@@ -62,6 +66,10 @@ body {
   margin-right: auto;
   border-left: 3px solid #10a37f;
   max-width: 70%;
+  white-space: pre-wrap;
+  line-height: 1.5;
+  font-size: 15px;
+  word-wrap: break-word;
 }
 
 #input-area {
