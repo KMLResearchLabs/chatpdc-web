@@ -1,13 +1,13 @@
 async function enviar() {
   const pergunta = document.getElementById("pergunta").value;
-async function enviar() {
-  const pergunta = document.getElementById("pergunta").value;
   const modo = document.getElementById("modo").value;
   const chat = document.getElementById("chat");
 
+  if (!pergunta.trim()) return;
+
   chat.innerHTML += `<div class="msg-user">${pergunta}</div>`;
 
-  const res = await fetch("https://chatpdc-web.onrender.com", {
+  const res = await fetch("https://chatpdc-web.onrender.com/chat", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -20,4 +20,5 @@ async function enviar() {
   chat.innerHTML += `<div class="msg-bot">${data.resposta}</div>`;
 
   document.getElementById("pergunta").value = "";
+  chat.scrollTop = chat.scrollHeight;
 }
