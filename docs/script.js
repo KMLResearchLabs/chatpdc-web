@@ -1,3 +1,5 @@
+const esperar = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
 async function enviar() {
   const pergunta = document.getElementById("pergunta").value;
   const modo = document.getElementById("modo").value;
@@ -19,6 +21,8 @@ async function enviar() {
   document.getElementById("pergunta").value = "";
 
   try {
+    await esperar(400); // 👈 ISSO RESOLVE
+
     const res = await fetch("https://chatpdc-web.onrender.com/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
