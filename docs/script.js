@@ -1,3 +1,5 @@
+const sessionId = crypto.randomUUID();
+
 async function enviar() {
   const pergunta = document.getElementById("pergunta").value;
   const modo = document.getElementById("modo").value;
@@ -22,7 +24,11 @@ async function enviar() {
     const res = await fetch("https://chatpdc-web.onrender.com/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ pergunta, modo })
+      body: JSON.stringify({
+        pergunta: pergunta,
+        modo: modo,
+        session_id: sessionId   // 🔥 AQUI
+      })
     });
 
     const data = await res.json();
@@ -31,7 +37,7 @@ async function enviar() {
     chat.innerHTML += `<div class="msg-bot">${data.resposta}</div>`;
   } catch (err) {
     typing.remove();
-    chat.innerHTML += `<div class="msg-bot">Erro ao responder 😢</div>`;
+    chat.innerHTML += `<div class="msg-bot">Erro ao responder </div>`;
   }
 
   botao.disabled = false;
