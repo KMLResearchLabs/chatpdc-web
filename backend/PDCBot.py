@@ -33,7 +33,7 @@ def PDC_Bot(pergunta: str, prompt: str) -> str:
     chance = 5  # %
 
     if random.uniform(0, 100) < chance:
-        return f"\nKoC > {random.choice(frases)}"
+        return f"\n{random.choice(frases)}"
 
     else:
         client = Groq(api_key=api_key)
@@ -59,8 +59,8 @@ def PDC_Bot(pergunta: str, prompt: str) -> str:
             else:
                 conteudo = "Manoel Gomes não quis compartilhar seu conhecimento hoje."
 
-            return f"\nChatPDC > {conteudo}"
+            return f"\n{conteudo}"
 
         except Exception as e:
-            return f"\nChatPDC > Alguém fez porpetagem KKKKK: {e}"
+            return f"\nAlguém fez porpetagem KKKKK: {e}"
 
