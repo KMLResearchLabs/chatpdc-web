@@ -17,14 +17,14 @@ body {
   background: #1e1e1e;
   padding: 12px;
   border-radius: 10px;
-  margin: 10px 0;
+  margin-left: auto;
 }
 
 .msg-bot {
   background: #151515;
   padding: 12px;
   border-radius: 10px;
-  margin: 10px 0;
+  margin-right: auto;
   border-left: 3px solid #10a37f;
 }
 
