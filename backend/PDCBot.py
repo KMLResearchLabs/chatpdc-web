@@ -4,6 +4,8 @@ from groq import Groq
 import os
 from dotenv import load_dotenv
 
+print("DEBUG: API KEY =", os.getenv("GROQ_API_KEY"))
+
 
 def quebrar_em_linhas(texto, palavras_por_linha):
     texto = re.sub(r"\s+", " ", texto.strip())
