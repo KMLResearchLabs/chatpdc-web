@@ -20,25 +20,33 @@ async function enviar() {
 
   document.getElementById("pergunta").value = "";
 
-  try {
-    const res = await fetch("https://chatpdc-web.onrender.com/chat", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        pergunta: pergunta,
-        modo: modo,
-        session_id: sessionId
-      })
-    });
+ try {
+  const res = await fetch("https://chatpdc-web.onrender.com/chat", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      pergunta,
+      modo,
+      session_id: sessionId
+    })
+  });
 
-    const data = await res.json();
-
-    typing.remove();
-    chat.innerHTML += `<div class="msg-bot">${data.resposta}</div>`;
-  } catch (err) {
-    typing.remove();
-    chat.innerHTML += `<div class="msg-bot">Erro ao responder </div>`;
+  if (!res.ok) {
+    const text = await res.text();
+    console.error("Erro backend:", text);
+    throw new Error("Backend error");
   }
+
+  const data = await res.json();
+
+  typing.remove();
+  chat.innerHTML += `<div class="msg-bot">${data.resposta}</div>`;
+} catch (err) {
+  console.error(err);
+  typing.remove();
+  chat.innerHTML += `<div class="msg-bot">Erro ao responder </div>`;
+}
+
 
   botao.disabled = false;
   chat.scrollTop = chat.scrollHeight;
