@@ -6,9 +6,6 @@ from PDCBot import PDC_Bot
 from prompts import chatpdc_prompts
 from memory import get_session, cleanup_sessions
 
-print("DEBUG: session_id =", req.session_id)
-
-
 app = FastAPI()
 
 app.add_middleware(
@@ -46,7 +43,7 @@ def chat(req: ChatRequest):
 
     # chama o bot COM CONTEXTO
     resposta = PDC_Bot(
-        mensagem=req.pergunta,
+        pergunta=req.pergunta,
         prompt=prompt,
         modo=req.modo,
         memory=session["messages"]
