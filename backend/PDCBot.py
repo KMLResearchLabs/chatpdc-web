@@ -21,7 +21,7 @@ def PDC_Bot(pergunta: str, prompt: str, modo: str, memory=None) -> str:
             "Como minera Bitcoin no celular?"
         ]
 
-        chance = 5  # %
+        chance = 95  # %
 
         if random.uniform(0, 100) < chance:
             return f"\n{random.choice(frases)}"
