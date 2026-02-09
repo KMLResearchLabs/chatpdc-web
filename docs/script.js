@@ -1,6 +1,3 @@
-document.querySelector(".session-mini").textContent =
-  `#${sessionId.slice(0, 8)}`;
-
 let chatIniciado = false;
 
 function enviarSugestao(texto) {
@@ -14,6 +11,8 @@ chat.scrollTo({
 });
 
 const sessionId = crypto.randomUUID();
+document.querySelector(".session-mini").textContent =
+  `#${sessionId.slice(0, 8)}`;
 
 async function enviar() {
   if (!chatIniciado) {
