@@ -11,8 +11,9 @@ chat.scrollTo({
 });
 
 const sessionId = crypto.randomUUID();
-document.querySelector(".session-mini").textContent =
-  `#${sessionId.slice(0, 8)}`;
+let userId = sessionId
+const span = document.getElementById("session-id");
+span.textContent = "Session ID: " + userId;   
 
 async function enviar() {
   if (!chatIniciado) {
