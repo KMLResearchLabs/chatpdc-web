@@ -376,3 +376,8 @@ body {
   }
 }
 /*PQ N VAI?????*/
+.session-mini {
+  font-size: 12px;
+  color: #888;
+  opacity: 0.6;
+}
