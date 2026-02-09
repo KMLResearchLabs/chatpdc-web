@@ -1,18 +1,7 @@
-import re
 import random
 from groq import Groq
 import os
 from dotenv import load_dotenv
-
-def quebrar_em_linhas(texto, palavras_por_linha):
-    texto = re.sub(r"\s+", " ", texto.strip())
-    palavras = texto.split(" ")
-
-    linhas = []
-    for i in range(0, len(palavras), palavras_por_linha):
-        linhas.append(" ".join(palavras[i:i + palavras_por_linha]))
-
-    return "\n".join(linhas)
 
 
 def PDC_Bot(pergunta: str, prompt: str, modo: str, memory=None) -> str:
@@ -59,7 +48,6 @@ def PDC_Bot(pergunta: str, prompt: str, modo: str, memory=None) -> str:
 
         if resposta.choices and resposta.choices[0].message:
             conteudo = resposta.choices[0].message.content.strip()
-            conteudo = quebrar_em_linhas(conteudo, palavras_por_linha=17)
         else:
             conteudo = "O vazio respondeu, nada..."
 
