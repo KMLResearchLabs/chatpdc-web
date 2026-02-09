@@ -22,7 +22,7 @@ async function enviar() {
   
   const pergunta = document.getElementById("pergunta").value;
   const modo = document.getElementById("modo").value;
-  const chat = document.getElementById("chat");
+  const chat = document.getElementById("chat-content");
   const botao = document.getElementById("btnEnviar");
 
   if (!pergunta.trim()) return;
