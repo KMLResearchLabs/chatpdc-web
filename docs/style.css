@@ -6,7 +6,7 @@ html, body {
   width: 100%;
   height: 100%;
   margin: 0;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 body {
@@ -414,6 +414,14 @@ body {
     max-width: 90%;
   }
 }
+
+@media (max-width: 768px) {
+  #welcome {
+    min-height: calc(100svh - 120px);
+    justify-content: center;
+  }
+}
+
 /*PQ N VAI?????*/
 
 #session-id {
