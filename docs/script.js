@@ -55,7 +55,7 @@ async function enviar() {
   const data = await res.json();
 
   typing.remove();
-  chat.innerHTML += `<div class="msg-bot">${data.resposta}</div>`;
+  chat.innerHTML += `<div class="msg-bot">${marked.parse(data.resposta)}</div>`;
 } catch (err) {
   console.error(err);
   typing.remove();
