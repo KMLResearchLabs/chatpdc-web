@@ -1,3 +1,6 @@
+document.querySelector(".session-mini").textContent =
+  `#${sessionId.slice(0, 8)}`;
+
 let chatIniciado = false;
 
 function enviarSugestao(texto) {
