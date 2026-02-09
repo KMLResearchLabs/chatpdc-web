@@ -1,10 +1,18 @@
-body {
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
   margin: 0;
+  overflow: hidden;
+}
+
+body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont;
   background: #0f0f0f;
   color: #e5e5e5;
-  height: 100vh;
-  overflow: hidden;
 }
 
 #logo {
@@ -31,49 +39,47 @@ body {
   user-select: none;
 }
 
-
-
 #chat {
-  max-width: 800px;
-  margin: auto;
-  padding: 20px;
-  padding-top: 120px;  
-  padding-bottom: 100px; 
-  
+  position: fixed;
+  inset: 0;
+  width: 100vw;
   height: 100vh;
-  overflow-y: auto;
 
-  display: flex;
+  display: none; /* inicia escondido */
   flex-direction: column;
+  align-items: center;
   gap: 10px;
 
+  padding: 120px 20px 100px;
+  overflow-y: auto;
+  overflow-x: hidden;
+
   scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.25) transparent;
 }
 
-
-.msg-user {
-  background: #1e1e1e;
+.msg-user,
+.msg-bot {
+  width: 100%;
+  max-width: 720px;
   padding: 12px;
   border-radius: 10px;
-  margin-left: auto;
-  max-width: 70%;
+
   white-space: pre-wrap;
   line-height: 1.5;
   font-size: 15px;
   word-wrap: break-word;
+}
+
+.msg-user {
+  background: #1e1e1e;
+  margin-left: auto;
 }
 
 .msg-bot {
   background: #151515;
-  padding: 12px;
-  border-radius: 10px;
   margin-right: auto;
   border-left: 3px solid #10a37f;
-  max-width: 70%;
-  white-space: pre-wrap;
-  line-height: 1.5;
-  font-size: 15px;
-  word-wrap: break-word;
 }
 
 #input-area {
@@ -82,50 +88,17 @@ body {
   left: 0;
   width: 100%;
   padding: 14px;
-  background: linear-gradient(to top, #0f0f0f 80%, rgba(15, 15, 15, 0.6));
+
   display: flex;
   justify-content: center;
   gap: 10px;
+
+  background: linear-gradient(to top, #0f0f0f 80%, rgba(15, 15, 15, 0.6));
   backdrop-filter: blur(6px);
   border-top: 1px solid #1f1f1f;
-  z-index: 10;
   box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.6);
-}
 
-#input-area select {
-  padding: 12px;
-  border-radius: 10px;
-  background: #1e1e1e;
-  color: #fff;
-  border: 1px solid #2a2a2a;
-  cursor: pointer;
-  appearance: none;
-}
-
-#input-area select:focus {
-  outline: none;
-  border-color: #10a37f;
-}
-
-#input-area input {
-  flex: 1;
-  max-width: 600px;
-  padding: 12px 14px;
-  border-radius: 10px;
-  border: 1px solid #2a2a2a;
-  background: #1e1e1e;
-  color: #fff;
-  font-size: 15px;
-  outline: none;
-}
-
-#input-area input:focus {
-  border-color: #10a37f;
-  box-shadow: 0 0 0 1px #10a37f;
-}
-
-#input-area input::placeholder {
-  color: #888;
+  z-index: 10;
 }
 
 #input-area select {
@@ -136,6 +109,7 @@ body {
   border: 1px solid #2a2a2a;
   font-size: 14px;
   cursor: pointer;
+
   appearance: none;
   -webkit-appearance: none;
   outline: none;
@@ -150,53 +124,44 @@ body {
   box-shadow: 0 0 0 1px #10a37f;
 }
 
-#input-area select:focus-visible {
+#input-area input {
+  flex: 1;
+  max-width: 600px;
+  padding: 12px 14px;
+
+  border-radius: 10px;
+  border: 1px solid #2a2a2a;
+  background: #1e1e1e;
+  color: #fff;
+  font-size: 15px;
+
   outline: none;
 }
 
-.typing {
-  display: inline-flex;
-  gap: 6px;
-  padding: 12px;
-  background: #151515;
-  border-radius: 10px;
-  margin: 10px 0;
-  border-left: 3px solid #10a37f;
+#input-area input::placeholder {
+  color: #888;
 }
 
-.typing span {
-  width: 8px;
-  height: 8px;
-  background: #e5e5e5;
-  border-radius: 50%;
-  animation: blink 1.4s infinite both;
-}
-
-.typing span:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.typing span:nth-child(3) {
-  animation-delay: 0.4s;
-}
-
-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+#input-area input:focus {
+  border-color: #10a37f;
+  box-shadow: 0 0 0 1px #10a37f;
 }
 
 #btnEnviar {
-  margin-left: 10px;
   padding: 12px 18px;
+  border-radius: 10px;
+
   background-color: #10a37f;
   color: #000;
   border: none;
-  border-radius: 10px;
+
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
-  appearance: none;
+
+  transition: background-color 0.2s ease,
+              transform 0.1s ease,
+              box-shadow 0.2s ease;
 }
 
 #btnEnviar:hover:not(:disabled) {
@@ -214,51 +179,38 @@ button:disabled {
   cursor: not-allowed;
 }
 
-#btnEnviar:focus-visible {
-  outline: 2px solid #10a37f;
-  outline-offset: 2px;
-}
+.typing {
+  display: inline-flex;
+  gap: 6px;
+  padding: 12px;
 
-#chat::-webkit-scrollbar {
-  width: 6px;
-}
-
-#chat::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.15);
-  background: rgba(255, 255, 255, 0.2);
+  background: #151515;
   border-radius: 10px;
+  border-left: 3px solid #10a37f;
 }
 
-#chat::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(255, 255, 255, 0.3);
+.typing span {
+  width: 8px;
+  height: 8px;
+  background: #e5e5e5;
+  border-radius: 50%;
+  animation: blink 1.4s infinite both;
 }
 
-chat.scrollTo({
-  top: chat.scrollHeight,
-  behavior: "smooth"
-});
-
-@keyframes blink {
-  0% {
-    opacity: 0.2;
-  }
-  20% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0.2;
-  }
-}
+.typing span:nth-child(2) { animation-delay: 0.2s; }
+.typing span:nth-child(3) { animation-delay: 0.4s; }
 
 #welcome {
   height: 30vh;
+  padding: 20px;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
   gap: 20px;
-  padding: 20px;
+
+  text-align: center;
 }
 
 #welcome h1 {
@@ -271,8 +223,7 @@ chat.scrollTo({
   color: #aaa;
   font-size: 20px;
   max-width: 500px;
-  margin-top: 0;
-  margin-bottom: 14px;
+  margin: 0 0 14px;
 }
 
 .suggestions {
@@ -295,7 +246,25 @@ chat.scrollTo({
   border-color: #10a37f;
 }
 
-#chat {
-  display: none;
+#chat::-webkit-scrollbar {
+  width: 8px;
 }
 
+#chat::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#chat::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+}
+
+#chat::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+@keyframes blink {
+  0% { opacity: 0.2; }
+  20% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
