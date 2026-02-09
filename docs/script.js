@@ -5,6 +5,10 @@ function enviarSugestao(texto) {
   enviar();
 }
 
+chat.scrollTo({
+  top: chat.scrollHeight,
+  behavior: "smooth"
+});
 
 const sessionId = crypto.randomUUID();
 
