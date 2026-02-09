@@ -242,7 +242,7 @@ chat.scrollTo({
 }
 
 #welcome {
-  height: 100vh;
+  height: 30vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -253,14 +253,14 @@ chat.scrollTo({
 }
 
 #welcome h1 {
-  font-size: 48px;
+  font-size: 60px;
   font-weight: 700;
   margin-bottom: 6px;
 }
 
 #welcome p {
   color: #aaa;
-  font-size: 18px;
+  font-size: 20px;
   max-width: 500px;
   margin-top: 0;
   margin-bottom: 14px;
