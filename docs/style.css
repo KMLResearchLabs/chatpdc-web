@@ -282,5 +282,12 @@ body {
 
   /* Curioso tu em paizin */
   100% { opacity: 0.2; }
+
 }
 /* PQ O DEPLOY È BUGADO?????? */
+@media (min-width: 768px) {
+  #chat-content {
+    padding: 0;
+  }
+}
+/*PQ N VAI?????*/
