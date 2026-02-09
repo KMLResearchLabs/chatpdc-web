@@ -402,6 +402,17 @@ body {
   body {
     font-size: 14px;
   }
+  #welcome {
+    min-height: calc(100svh - 120px);
+    justify-content: center;
+  }
+  #welcome h1 {
+    margin-top: 0;
+  }
+
+  .suggestions {
+    max-width: 90%;
+  }
 }
 /*PQ N VAI?????*/
 
@@ -417,3 +428,15 @@ body {
 }
 
 /* DEPLOY BUGADASSO */
+
+/* Altura correta no mobile (corrige vh bugado) */
+@supports (height: 100svh) {
+  html, body {
+    height: 100svh;
+  }
+}
+
+#welcome,
+#chat {
+  transition: opacity 0.25s ease;
+}
