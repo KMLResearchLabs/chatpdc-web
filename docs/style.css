@@ -3,6 +3,8 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont;
   background: #0f0f0f;
   color: #e5e5e5;
+  height: 100vh;
+  overflow: hidden;
 }
 
 #logo {
@@ -44,6 +46,8 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
+
+  scrollbar-width: thin;
 }
 
 
@@ -215,9 +219,14 @@ button:disabled {
   outline-offset: 2px;
 }
 
+#chat::-webkit-scrollbar {
+  width: 6px;
+}
 
 #chat::-webkit-scrollbar-thumb {
   background-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
 }
 
 #chat::-webkit-scrollbar-thumb:hover {
