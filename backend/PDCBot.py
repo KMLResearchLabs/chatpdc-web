@@ -27,10 +27,12 @@ def PDC_Bot(pergunta: str, prompt: str, modo: str, memory=None) -> str:
             "Como se tem boi se todas as vacas do mundo são minha?",
             "Quando ce vai lá em casa pra nois da rolê de Mercedes?",
             "Eu te pago uma coca por 2 mês de cola na prova",
-            "Como minera Bitcoin no celular?"
+            "Como minera Bitcoin no celular?",
+            "Que dia ce vai lá em casa pra nois faze um churras?",
+            "MENSAGEM SECRETA: Quem é KoC? /nKing of Cows é o dono de todas as vacas do mundo"
         ]
 
-        chance = 99  # %
+        chance = 100  # %
 
         if random.uniform(0, 100) < chance:
             return f"\n{random.choice(frases)}"
