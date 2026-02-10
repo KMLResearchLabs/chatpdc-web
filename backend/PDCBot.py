@@ -18,10 +18,19 @@ def PDC_Bot(pergunta: str, prompt: str, modo: str, memory=None) -> str:
             "Cmoe faos",
             "Bora?",
             "Tem que ir pra Russia",
+            "Kleso meu amigão",
+            "Valeu Humberto",
+            "Valeu Gabu",
+            "Valeu Lucão",
+            "Me de notícias sobre Bitcoin",
+            "Tem que faze intercâmbio na Europa",
+            "Como se tem boi se todas as vacas do mundo são minha?",
+            "Quando ce vai lá em casa pra nois da rolê de Mercedes?",
+            "Eu te pago uma coca por 2 mês de cola na prova",
             "Como minera Bitcoin no celular?"
         ]
 
-        chance = 95  # %
+        chance = 99  # %
 
         if random.uniform(0, 100) < chance:
             return f"\n{random.choice(frases)}"
