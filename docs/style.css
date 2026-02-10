@@ -450,3 +450,58 @@ body {
 }
 
 /* Caro curioso: deploy do git pages é HORRENDO */
+
+.chat-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 56px;
+  background: #0f0f0f;
+  border-bottom: 1px solid #222;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+}
+
+.chat-header-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 16px;
+}
+
+.chat-logo {
+  height: 28px;
+  width: auto;
+}
+
+.chat-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.chat-container {
+  padding-top: 56px; /* mesma altura do header */
+}
+
+@media (max-width: 600px) {
+  .chat-header {
+    height: 52px;
+  }
+
+  .chat-logo {
+    height: 24px;
+  }
+
+  .chat-title {
+    font-size: 0.95rem;
+  }
+
+  .chat-container {
+    padding-top: 52px;
+  }
+}
+
